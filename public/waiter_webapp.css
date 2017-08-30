@@ -1,0 +1,12 @@
+body{
+        background-color: lavender;
+}
+
+.error{
+        color: red;
+        font-size: 1.5em;
+}
+
+.display{
+        font-size: 1.5em;
+}

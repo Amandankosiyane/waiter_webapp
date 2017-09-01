@@ -1,67 +1,62 @@
 module.exports = function(models) {
-        const showForm = function(req, res, next) {
-                var accessName = req.body.userName
-                if (!accessName) {
-                        req.flash('error', 'please enter your name first');
-                        res.render('waiter');
-                } else {
-                        models.waiterInfo.findOne({
-                                waiterUser: req.body.userName
-                        }, function(err, name) {
-                                if (err) {
-                                        return next(err)
-                                } else
-
-                                if (name) {
-                                        req.flash("error", "Name already added!!!")
-                                        res.redirect('/')
-                                } else {
-
-                                        models.waiterInfo.create({
-                                                waiterUser: req.body.userName
-                                        }, function(err, name) {
-                                                if (err) {
-                                                        return next(err)
-                                                }
-                                                var waiterData = {
-                                                        person: name
-                                                }
-                                                res.render('waiter', waiterData)
-
-                                        })
-
-                                }
-                        })
-                }
+        const waiters = function(req, res, next) {
+                res.render('waiters')
         }
 
-        const showInfo = function(req, res) {
-                res.render('waiter');
-        }
         const waiterAccess = function(req, res, next) {
-        // 
-        //         var user_id = req.params.user_id;
-        //         models.waiterInfo.findOne({
-        //                 'user_id': user_id
-        //         }, function(err, result) {
-        //                 if (err) {
-        //                         return next(err)
-        //                 }
-        //                 res.render('waiter', result)
-        //
-        //
-        // })
-}
+                var firstLetter = req.params.username.substring(0,1);
+                var uppercase = req.params.username.substring(0,1).toUpperCase()
+                var username = req.params.username.replace(firstLetter, uppercase);
+                res.render('days', {
+                        waiter: username
+                });
+        }
 
-        const daysToWork = function(req, res, next) {
+        const days = function(req, res, next) {
+
+                var daysObj = {};
+                var firstLetter = req.params.username.substring(0,1);
+                var uppercase = req.params.username.substring(0,1).toUpperCase()
+                var username = req.params.username.replace(firstLetter, uppercase);
+
+                var days = req.body.day;
+
+                // loop trhough the days and push them to the days object with value of true
+                if (days.length == 1) {
+                        for (var i =0; i < days.length; i++) {
+                                var curDay = days[i];
+                                daysObj[curDay] = true
+                        }
+                } else {
+                        daysObj[days] = true;
+                }
+
+                models.waiterInfo.findOneAndUpdate({
+                        waiterName: username
+                }, {
+                        daysToWork: daysObj
+                }, function(err, result) {
+                        if (err) {
+                                console.log(err);
+                        } else if (!result) {
+                                models.waiterInfo.create({
+                                        waiterName: username,
+                                        daysToWork: daysObj
+                                });
+                        }
+                });
+
+
+
+                res.redirect('/waiters/' + username);
+
 
         }
 
 
         return {
-                showInfo,
-                showForm,
+                waiters,
                 waiterAccess,
-                daysToWork
+                days
         }
 }

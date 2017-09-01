@@ -22,18 +22,15 @@ app.use(flash());
 
 app.get('/', function(req,res){
         res.redirect('/waiters');
-        // console.log(waiter);
 })
 
-app.get('/waiters', waiterRoutes.showInfo);
-app.post('/waiters', waiterRoutes.showForm );
-app.get('/waiter/:user_id', waiterRoutes.waiterAccess);
-app.post('/waiter/:user_id', waiterRoutes.waiterAccess)
-app.get('/days', waiterRoutes.daysToWork)
-app.post('/days', waiterRoutes.daysToWork)
+app.get('/waiters', waiterRoutes.waiters)
 
+app.get('/waiters/:username', waiterRoutes.waiterAccess);
+app.post('/waiters/:username', waiterRoutes.days);
 
-
+app.get('/days', waiterRoutes.waiterAccess);
+app.post('/days', waiterRoutes.waiterAccess);
 
 
 const port = process.env.PORT || 3016;

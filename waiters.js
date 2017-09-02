@@ -7,6 +7,8 @@ module.exports = function(models) {
                 var firstLetter = req.params.username.substring(0,1);
                 var uppercase = req.params.username.substring(0,1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
+
+
                 res.render('days', {
                         waiter: username
                 });
@@ -14,34 +16,35 @@ module.exports = function(models) {
 
         const days = function(req, res, next) {
 
-                var daysObj = {};
+                var daysObject = {};
                 var firstLetter = req.params.username.substring(0,1);
                 var uppercase = req.params.username.substring(0,1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
 
                 var days = req.body.day;
 
-                // loop trhough the days and push them to the days object with value of true
-                if (days.length == 1) {
+                // loop through the days and push them to the days object with value of true
+                if (days.length == 1 ) {
+
                         for (var i =0; i < days.length; i++) {
-                                var curDay = days[i];
-                                daysObj[curDay] = true
+                                var currentDay = days[i];
+                                daysObject[currentDay] = true
                         }
                 } else {
-                        daysObj[days] = true;
+                        daysObject[days] = true;
                 }
 
                 models.waiterInfo.findOneAndUpdate({
                         waiterName: username
                 }, {
-                        daysToWork: daysObj
+                        daysToWork: daysObject
                 }, function(err, result) {
                         if (err) {
                                 console.log(err);
                         } else if (!result) {
                                 models.waiterInfo.create({
                                         waiterName: username,
-                                        daysToWork: daysObj
+                                        daysToWork: daysObject
                                 });
                         }
                 });

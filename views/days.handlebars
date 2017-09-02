@@ -2,18 +2,23 @@
         <head>
                 <meta charset="utf-8">
                 <title>days</title>
-                <link rel="stylesheet" href="waiter_webapp.css">
+                <link rel="stylesheet" href="/css/days.css">
         </head>
         <body>
-                <form action="" method="post">
-                        <h1>{{waiter}}</h1>
-                        <br><br><br><br>
-  <input type="checkbox" name="day" value="Monday">Monday <br>
-  <input type="checkbox" name="day" value="Tuesday">Tuesday<br>
-  <input type="checkbox" name="day" value="Wednesday">Wednesday<br>
-  <input type="checkbox" name="day" value="Thursday">Thursday<br>
-  <input type="checkbox" name="day" value="Friday">Friday<br>
-  <input type="checkbox" name="day" value="Saturday">Saturday<br>
-  <input type="checkbox" name="day" value="Sunday">Sunday<br>
-  <input type="submit" value="Submit">
+<h1>WAITER AVAILABILITY APPLICATION</h1>
+
+<h6>Hello {{waiter}}, please select the days that you would like to work on!!!!</h6>
+                <form action="" method="post" align="center">
+<br>
+  <input type="checkbox" name="day" value="Monday"><b>Monday</b>
+  <input type="checkbox" name="day" value="Tuesday"><b>Tuesday</b>
+  <input type="checkbox" name="day" value="Wednesday"><b>Wednesday</b>
+  <input type="checkbox" name="day" value="Thursday"><b>Thursday</b>
+  <input type="checkbox" name="day" value="Friday"><b>Friday</b>
+  <input type="checkbox" name="day" value="Saturday"><b>Saturday</b>
+  <input type="checkbox" name="day" value="Sunday"><b>Sunday</b> <br><br>
+  <input type="submit" value="Submit" class="submitBtn">
+  <br><br>
+
+  {{messages.error}}
 </form>

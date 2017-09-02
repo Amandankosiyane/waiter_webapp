@@ -1,0 +1,43 @@
+body {
+        margin: 50px;
+        background-color: lavender;
+        background-image: url(backgroundImage.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+}
+
+
+h3 {
+        font-size: 4em;
+        font-family: 'Gochi Hand', border-style: inset;
+        font-weight: bolder;
+        text-align: center;
+        text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+}
+
+/*h4{
+        font-size: 2em;
+}*/
+
+.alert {
+    /*padding: 20px;*/
+    background-color: darksalmon;
+    color: red;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/*.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}*/
+
+/*.closebtn:hover {
+    color: black;
+}*/

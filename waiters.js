@@ -22,17 +22,26 @@ module.exports = function(models) {
                 var username = req.params.username.replace(firstLetter, uppercase);
 
                 var days = req.body.day;
-
-                // loop through the days and push them to the days object with value of true
-                if (days.length == 1 ) {
-
-                        for (var i =0; i < days.length; i++) {
-                                var currentDay = days[i];
-                                daysObject[currentDay] = true
-                        }
-                } else {
-                        daysObject[days] = true;
+                if(!Array.isArray(days)){
+                        // loop through the days and push them to the days object with value of true
+                        days = [days]
                 }
+                // console.log(typeof days);
+                 days.forEach(function(day){
+                         daysObject[day] = true
+                        //  console.log(day);
+                 });
+
+                // if (days.length == 1 ) {
+                //
+                //         for (var i =0; i < days.length; i++) {
+                //                 var currentDay = days[i];
+                //                 daysObject[currentDay] = true
+                //                 console.log(daysObject);
+                //         }
+                // } else {
+                //         daysObject[days] = true;
+                // }
 
                 models.waiterInfo.findOneAndUpdate({
                         waiterName: username
@@ -50,7 +59,7 @@ module.exports = function(models) {
                 });
 
 
-
+req.flash('error', "Thank you!!!")
                 res.redirect('/waiters/' + username);
 
 

@@ -1,26 +1,36 @@
+<head>
+        <meta charset="utf-8">
+        <title>days</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/skeleton.css">
+        <link rel="stylesheet" href="/css/days.css">
 
-        <head>
-                <meta charset="utf-8">
-                <title>days</title>
-                <link rel="stylesheet" href="/css/days.css">
-        </head>
-        <body>
-<h1>WAITER AVAILABILITY APPLICATION</h1>
+</head>
+<div class="container">
 
-<h6>Hello {{waiter}}, please select the days that you would like to work on!!!!</h6>
-                <form action="" method="post" align="center">
-<br>
-  <input type="checkbox" name="day" value="Monday" ><b>Monday</b>
-  <input type="checkbox" name="day" value="Tuesday" ><b>Tuesday</b>
-  <input type="checkbox" name="day" value="Wednesday" ><b>Wednesday</b>
-  <input type="checkbox" name="day" value="Thursday" ><b>Thursday</b>
-  <input type="checkbox" name="day" value="Friday" ><b>Friday</b>
-  <input type="checkbox" name="day" value="Saturday" ><b>Saturday</b>
-  <input type="checkbox" name="day" value="Sunday" ><b>Sunday</b> <br><br>
-  <input type="submit" value="Submit" class="submitBtn">
-  <br><br>
-<div class="error">
+<body>
+        <h1>WAITER AVAILABILITY APPLICATION</h1>
 
-        {{messages.error}}
+        <h6>Hello {{waiter}}, please select the days that you would like to work on!!!!</h6>
+        <form action="" method="post" align="center">
+                <br>
+                <div class="row">
+<div class="one column">
+                <input type="checkbox" name="day" value="Monday"><b>Monday</b>
+                <input type="checkbox" name="day" value="Tuesday"><b>Tuesday</b>
+                <input type="checkbox" name="day" value="Wednesday"><b>Wednesday</b>
+                <input type="checkbox" name="day" value="Thursday"><b>Thursday</b>
+                <input type="checkbox" name="day" value="Friday"><b>Friday</b>
+                <input type="checkbox" name="day" value="Saturday"><b>Saturday</b>
+                <input type="checkbox" name="day" value="Sunday"><b>Sunday</b> <br><br>
+                <input type="submit" value="Submit" class="submitBtn">
+                </div>
+        </div>
+                <br><br>
+                <div class="error">
+
+                        {{messages.error}}
+                </div>
+        </form>
+</body>
 </div>
-</form>

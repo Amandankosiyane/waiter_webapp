@@ -4,8 +4,8 @@ module.exports = function(models) {
         }
 
         const waiterAccess = function(req, res, next) {
-                var firstLetter = req.params.username.substring(0,1);
-                var uppercase = req.params.username.substring(0,1).toUpperCase()
+                var firstLetter = req.params.username.substring(0, 1);
+                var uppercase = req.params.username.substring(0, 1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
 
 
@@ -17,31 +17,21 @@ module.exports = function(models) {
         const days = function(req, res, next) {
 
                 var daysObject = {};
-                var firstLetter = req.params.username.substring(0,1);
-                var uppercase = req.params.username.substring(0,1).toUpperCase()
+                var firstLetter = req.params.username.substring(0, 1);
+                var uppercase = req.params.username.substring(0, 1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
 
                 var days = req.body.day;
-                if(!Array.isArray(days)){
-                        // loop through the days and push them to the days object with value of true
+                if (!Array.isArray(days)) {
                         days = [days]
                 }
-                // console.log(typeof days);
-                 days.forEach(function(day){
-                         daysObject[day] = true
-                        //  console.log(day);
-                 });
 
-                // if (days.length == 1 ) {
-                //
-                //         for (var i =0; i < days.length; i++) {
-                //                 var currentDay = days[i];
-                //                 daysObject[currentDay] = true
-                //                 console.log(daysObject);
-                //         }
-                // } else {
-                //         daysObject[days] = true;
-                // }
+                days.forEach(function(day) {
+                        daysObject[day] = true
+
+                });
+
+
 
                 models.waiterInfo.findOneAndUpdate({
                         waiterName: username
@@ -59,8 +49,26 @@ module.exports = function(models) {
                 });
 
 
-req.flash('error', "Thank you!!!")
+                req.flash('error', "Thank you!!!")
                 res.redirect('/waiters/' + username);
+
+
+        }
+        const admin = function(req, res, next) {
+                // var firstLetter = req.params.username.substring(0, 1);
+                // var uppercase = req.params.username.substring(0, 1).toUpperCase()
+                var username = req.params.username;
+                var days = req.body.day;
+
+                models.waiterInfo.find({
+                        waiterName: username,
+                        daysToWork: days
+                }, function(err, adminResults){
+                        if (err) {
+                                return next(next)
+                        }
+                        res.render('admin', {dataCollected: adminResults})
+                })
 
 
         }
@@ -69,6 +77,7 @@ req.flash('error', "Thank you!!!")
         return {
                 waiters,
                 waiterAccess,
-                days
+                days,
+                admin
         }
 }

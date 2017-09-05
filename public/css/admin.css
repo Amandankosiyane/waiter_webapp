@@ -1,0 +1,34 @@
+body{
+        background-color: lavender;
+        background-image: url(backgroundImage.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        margin: 50px;
+}
+
+h6 {
+        font-size: 4em;
+        font-family: 'Gochi Hand', border-style: inset;
+        /*font-weight: bolder;*/
+        text-align: center;
+        text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+}
+
+table{
+        width: 60%;
+    border-color: slategrey;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 3px;
+    background-color: darksalmon;
+}
+
+td{
+        font-weight: 100;
+   border: 3px solid black;
+   border-collapse: collapse;
+}
+th{
+        border: 5px solid black;
+        height: 35px; 
+}

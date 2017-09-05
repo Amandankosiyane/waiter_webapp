@@ -7,20 +7,21 @@
         </head>
         <body>
                 <h6>Available waiters</h6>
-                <table>
-                        <th>{{daysToWork}}</th>
+                <table align="center">
+                        <th>MONDAY</th>
+                        <th>TUESDAY</th>
+                        <th>WEDNESDAY</th>
+                        <th>THURSDAY</th>
+                        <th>FRIDAY</th>
+                        <th>SATURDAY</th>
+                        <th>SUNDAY</th>
+
+                        {{#each dataCollected}}
                         <tr>
-                                <td>{{waiter}}</td>
+                                <td>{{this.waiterName}}</td>
                         </tr>
+                        {{/each}}
                 </table>
 
                 <!-- <p><a href="/greets">Home page</a></p> -->
         </body>
-
-
-        <!-- h6>Greeted names</h6>
-        <ul>
-                {{#each greets}}
-                <li><a href="/counter/{{this._id}}">{{this.nym}}</a></li>
-                {{/each}}
-        </ul> -->

@@ -1,27 +1,77 @@
+<head>
+        <meta charset="utf-8">
+        <title>Admin</title>
+        <link rel="stylesheet" href="/css/admin.css">
 
-        <head>
-                <meta charset="utf-8">
-                <title>Admin</title>
-                <link rel="stylesheet" href="/css/admin.css">
+</head>
 
-        </head>
-        <body>
-                <h6>Available waiters</h6>
-                <table align="center">
-                        <th>MONDAY</th>
-                        <th>TUESDAY</th>
-                        <th>WEDNESDAY</th>
-                        <th>THURSDAY</th>
-                        <th>FRIDAY</th>
-                        <th>SATURDAY</th>
-                        <th>SUNDAY</th>
+<body>
+        <h6>Available waiters</h6>
+        <table align="center">
+                <th>MONDAY</th>
+                <th>TUESDAY</th>
+                <th>WEDNESDAY</th>
+                <th>THURSDAY</th>
+                <th>FRIDAY</th>
+                <th>SATURDAY</th>
+                <th>SUNDAY</th>
+                <ul>
 
                         {{#each dataCollected}}
-                        <tr>
-                                <td>{{this.waiterName}}</td>
-                        </tr>
+                                <tr>
+                                        <td>{{this.waiterName}}</td>
+                                </tr>
                         {{/each}}
-                </table>
+                </ul>
+                <!-- <ul>
 
-                <!-- <p><a href="/greets">Home page</a></p> -->
-        </body>
+                        {{#each dataCollected.Tuesday.daysToWork}}
+                                <tr>
+                                        <li>{{this}}</li>
+                                </tr>
+                        {{/each}}
+                </ul>
+                <ul>
+
+                        {{#each dataCollected}}
+                                <tr>
+                                        <li>{{this.waiterName}}</li>
+                                </tr>
+                        {{/each}}
+                </ul>
+                <ul>
+
+                        {{#each dataCollected}}
+                                <tr>
+                                        <li>{{this.waiterName}}</li>
+                                </tr>
+                        {{/each}}
+                </ul>
+                <ul>
+
+                        {{#each dataCollected}}
+                                <tr>
+                                        <li>{{this.waiterName}}</li>
+                                </tr>
+                        {{/each}}
+                </ul>
+                <ul>
+
+                        {{#each dataCollected}}
+                                <tr>
+                                        <li>{{this.waiterName}}</li>
+                                </tr>
+                        {{/each}}
+                </ul>
+                <ul>
+
+                        {{#each dataCollected}}
+                                <tr>
+                                        <li>{{this.waiterName}}</li>
+                                </tr>
+                        {{/each}}
+                </ul> -->
+        </table>
+
+        <!-- <p><a href="/greets">Home page</a></p> -->
+</body>

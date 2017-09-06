@@ -1,4 +1,4 @@
-module.exports = function(models) {
+// module.exports = function(models) {
         const waiters = function(req, res, next) {
                 res.render('waiters')
         }
@@ -10,7 +10,6 @@ module.exports = function(models) {
                 var username = req.params.username.replace(firstLetter, uppercase);
 
                 var days = req.body.day;
-
                 if (!Array.isArray(days)) {
                         days = [days]
                 }
@@ -19,43 +18,31 @@ module.exports = function(models) {
                         daysObject[day] = true
 
                 });
-                // console.log(username);
+                console.log(username);
                 models.waiterInfo.findOne({
                         waiterName: username
                 }, function(err, results) {
                         if (err) {
                                 return next(err)
-                        }
-
-                        console.log(results);
-                        if (results !== null) {
-
-                                console.log('results exits');
-
-                                var amanda = {
-                                        waiterName: results.waiterName,
-                                        days: results.daysToWork
-                                }
-                                res.render('days', amanda)
-                        }
-                         if (results == null) {
-                                 console.log('creating');
+                        } else if (results) {
+                                // req.flash("error", "Username already exist please choose a new one")
+                                // res.redirect('/')
+                                console.log(results);
+                        } else if (!results) {
                                 models.waiterInfo.create({
-                                        waiterName: username,
+                                        waiterName: username
                                         daysToWork: daysObject
                                 }, function(err, results) {
                                         if (err) {
                                                 return next(err)
                                         }
-                                        var amanda = {
+                                        // req.flash('error', "Thank you, shift updated.")
+                                        res.render('days', {
                                                 waiterName: results.waiterName,
                                                 days: results.daysToWork
-                                        }
-                                        res.render('days', amanda)
-
-                                })
-
-                }
+                                        });
+                                });
+                        }
                 })
 
         }

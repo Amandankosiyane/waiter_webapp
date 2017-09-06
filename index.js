@@ -31,9 +31,8 @@ app.post('/waiters/:username', waiterRoutes.days);
 
 app.get('/days', waiterRoutes.waiterAccess);
 app.post('/days', waiterRoutes.waiterAccess);
-app.get('/admin', waiterRoutes.admin);
-app.post('/admin', waiterRoutes.admin)
-
+// app.get('/admin', waiterRoutes.admin);
+// app.post('/admin', waiterRoutes.admin)
 
 
 const port = process.env.PORT || 3016;

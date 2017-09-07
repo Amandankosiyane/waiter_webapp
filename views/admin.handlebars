@@ -8,69 +8,56 @@
 <body>
         <h6>Available waiters</h6>
         <table align="center">
-                <th>MONDAY</th>
-                <th>TUESDAY</th>
-                <th>WEDNESDAY</th>
-                <th>THURSDAY</th>
-                <th>FRIDAY</th>
-                <th>SATURDAY</th>
-                <th>SUNDAY</th>
-                <ul>
-
-                        {{#each dataCollected}}
-                                <tr>
-                                        <td>{{this.waiterName}}</td>
-                                </tr>
-                        {{/each}}
-                </ul>
-                <!-- <ul>
-
-                        {{#each dataCollected.Tuesday.daysToWork}}
-                                <tr>
+                <thead>
+                        <tr>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <ul>
+                                <td>
+                                        {{#each mon}}
                                         <li>{{this}}</li>
-                                </tr>
-                        {{/each}}
-                </ul>
-                <ul>
-
-                        {{#each dataCollected}}
-                                <tr>
-                                        <li>{{this.waiterName}}</li>
-                                </tr>
-                        {{/each}}
-                </ul>
-                <ul>
-
-                        {{#each dataCollected}}
-                                <tr>
-                                        <li>{{this.waiterName}}</li>
-                                </tr>
-                        {{/each}}
-                </ul>
-                <ul>
-
-                        {{#each dataCollected}}
-                                <tr>
-                                        <li>{{this.waiterName}}</li>
-                                </tr>
-                        {{/each}}
-                </ul>
-                <ul>
-
-                        {{#each dataCollected}}
-                                <tr>
-                                        <li>{{this.waiterName}}</li>
-                                </tr>
-                        {{/each}}
-                </ul>
-                <ul>
-
-                        {{#each dataCollected}}
-                                <tr>
-                                        <li>{{this.waiterName}}</li>
-                                </tr>
-                        {{/each}}
-                </ul> -->
+                                        {{/each}}
+                                </td>
+                                <td>
+                                        {{#each tue}}
+                                        <li>{{this}}</li>
+                                        {{/each}}
+                                </td>
+                                <td>
+                                        {{#each wed}}
+                                        <li>{{this}}</li>
+                                        {{/each}}
+                                </td>
+                                <td>
+                                        {{#each thur}}
+                                        <li>{{this}}</li>
+                                        {{/each}}
+                                </td>
+                                <td>
+                                        {{#each fri}}
+                                        <li>{{this}}</li>
+                                        {{/each}}
+                                </td>
+                                <td>
+                                        {{#each sat}}
+                                        <li>{{this}}</li>
+                                        {{/each}}
+                                </td>
+                                <td>
+                                        {{#each sun}}
+                                        <li>{{this}}</li>
+                                        {{/each}}
+                                </td>
+                        </ul>
+                </tbody>
         </table>
 
         <!-- <p><a href="/greets">Home page</a></p> -->

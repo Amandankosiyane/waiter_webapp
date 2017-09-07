@@ -1,5 +1,13 @@
 module.exports = function(models) {
 
+        var Monday = [];
+        var Tuesday = [];
+        var Wednesday = [];
+        var Thursday = [];
+        var Friday = [];
+        var Saturday = [];
+        var Sunday = [];
+
         const waiters = function(req, res, next) {
                 res.render('waiters')
         }
@@ -32,11 +40,11 @@ module.exports = function(models) {
 
                                 console.log('results exits');
 
-                                var amanda = {
+                                var waiterData = {
                                         waiterName: results.waiterName,
                                         days: results.daysToWork
                                 }
-                                res.render('days', amanda)
+                                res.render('days', waiterData)
                         }
                         if (results == null) {
                                 console.log('creating');
@@ -47,14 +55,13 @@ module.exports = function(models) {
                                         if (err) {
                                                 return next(err)
                                         }
-                                        var amanda = {
+                                        var waiterData = {
                                                 waiterName: results.waiterName,
                                                 days: results.daysToWork
                                         }
-                                        res.render('days', amanda)
+                                        res.render('days', waiterData)
 
                                 })
-
                         }
                 })
 
@@ -103,62 +110,49 @@ module.exports = function(models) {
 
 
         const admin = function(req, res, next) {
-                var daysMap = {};
-                // var firstLetter = req.params.username.substring(0, 1);
-                // var uppercase = req.params.username.substring(0, 1).toUpperCase()
-                // var username = req.params.username.replace(firstLetter, uppercase);
-                // var username = req.params.username;
-                // console.log(username);
-                // var day = req.body.day;
-                models.waiterInfo.find({}, function(err,reslt){
+                Monday = [];
+                Tuesday = [];
+                Wednesday = [];
+                Thursday = [];
+                Friday = [];
+                Saturday = [];
+                Sunday = [];
+                models.waiterInfo.find({}, function(err, reslt) {
+                        console.log(reslt);
                         if (err) {
                                 return next(err)
+                        } else {
+                                for (var i = 0; i < reslt.length; i++) {
+                                        var curDays = reslt[i].daysToWork;
+                                        for (var day in curDays) {
+                                                if (day == 'Monday') {
+                                                        Monday.push(reslt[i].waiterName);
+                                                } else if (day == 'Tuesday') {
+                                                        Tuesday.push(reslt[i].waiterName);
+                                                }else if (day == 'Wednesday') {
+                                                        Wednesday.push(reslt[i].waiterName);
+                                                }else if (day == 'Thursday') {
+                                                        Thursday.push(reslt[i].waiterName);
+                                                }else if (day == 'Friday') {
+                                                        Friday.push(reslt[i].waiterName);
+                                                }else if (day == 'Saturday') {
+                                                        Saturday.push(reslt[i].waiterName);
+                                                }else if (day == 'Sunday') {
+                                                        Sunday.push(reslt[i].waiterName);
+                                                }
+                                        }
+                                }
                         }
-                        var dayys = [{
-                                daysToWork: 'Monday',
-                                waiterName: []
-                        },{
-                                daysToWork: 'Tuesday',
-                                waiterName: []
-                        },{
-                                daysToWork: 'Wednesday',
-                                waiterName: []
-                        },{
-                                daysToWork: 'Thursday',
-                                waiterName: []
-                        },{
-                                daysToWork: 'Friday',
-                                waiterName: []
-                        },{
-                                daysToWork: 'Saturday',
-                                waiterName: []
-                        },{
-                                daysToWork: 'Sunday',
-                                waiterName: []
-                        }];
-                        for (var i = 0; i < dayys.length; i++) {
-                                var newDay = dayys[i]
-                        }
-                        if (newDay== 'Monday') {
-                                Monday.push(waiterName)
-                        }else if (newDay== 'Tuesday') {
-                                Tuesday.push(waiterName)
-                        }else if (newDay == 'Wednesday') {
-                                Wednesday.push(waiterName)
-                        }else if (newDay == 'Thursday') {
-                                Thursday.push(waiterName)
-                        }else if (newDay == 'Friday') {
-                                Friday.push(waiterName)
-                        }else if (newDay == 'Saturday') {
-                                Saturday.push(waiterName)
-                        }else if (newDay == 'Sunday') {
-                                Sunday.push(waiterName)
-                        }
-                        console.log(reslt);
                         res.render("admin", {
-                                dataCollected: reslt
-                        })
-                })
+                                mon: Monday,
+                                tue: Tuesday,
+                                wed: Wednesday,
+                                thur: Thursday,
+                                fri: Friday,
+                                sat: Saturday,
+                                sun: Sunday
+                        });
+                });
         }
 
 

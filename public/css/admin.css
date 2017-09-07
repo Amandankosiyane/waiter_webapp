@@ -30,5 +30,10 @@ td{
 }
 th{
         border: 5px solid black;
-        height: 35px; 
+        height: 35px;
+}
+
+li{
+        list-style: none;
+        text-align: center;
 }

@@ -1,12 +1,21 @@
 <head>
         <meta charset="utf-8">
         <title>Admin</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/skeleton.css">
         <link rel="stylesheet" href="/css/admin.css">
 
 </head>
 
 <body>
         <h6>Available waiters</h6>
+        <p class="info"><b>KEY:</b></p>
+        <div class="key">
+                        <p class="green">enough waiters</p>
+                        <p class="red">shortage of waiters</p>
+                        <p class="orange">more waiters</p>
+
+        </div>
         <table align="center">
                 <thead>
                         <tr>
@@ -21,37 +30,37 @@
                 </thead>
                 <tbody>
                         <ul>
-                                <td>
+                                <td class="{{mondayColor}}">
                                         {{#each mon}}
                                         <li>{{this}}</li>
                                         {{/each}}
                                 </td>
-                                <td>
+                                <td class="{{tuesdayColor}}">
                                         {{#each tue}}
                                         <li>{{this}}</li>
                                         {{/each}}
                                 </td>
-                                <td>
+                                <td class="{{wednesdayColor}}">
                                         {{#each wed}}
                                         <li>{{this}}</li>
                                         {{/each}}
                                 </td>
-                                <td>
+                                <td class="{{thursdayColor}}">
                                         {{#each thur}}
                                         <li>{{this}}</li>
                                         {{/each}}
                                 </td>
-                                <td>
+                                <td class="{{fridayColor}}">
                                         {{#each fri}}
                                         <li>{{this}}</li>
                                         {{/each}}
                                 </td>
-                                <td>
+                                <td class="{{saturdayColor}}">
                                         {{#each sat}}
                                         <li>{{this}}</li>
                                         {{/each}}
                                 </td>
-                                <td>
+                                <td class="{{sundayColor}}">
                                         {{#each sun}}
                                         <li>{{this}}</li>
                                         {{/each}}
@@ -59,6 +68,10 @@
                         </ul>
                 </tbody>
         </table>
+        <br><br><br><br>
+        <form class="" action="/clear" method="post" align="center">
 
+                <input type="submit" name="" value="Clear Histoy" class="clearData">
+        </form>
         <!-- <p><a href="/greets">Home page</a></p> -->
 </body>

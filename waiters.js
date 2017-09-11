@@ -108,6 +108,16 @@ module.exports = function(models) {
 
         }
 
+        function backgroundColor(colors) {
+                if (colors === 3) {
+                        return "enough";
+                }else if (colors < 3) {
+                        return "notEnough";
+                }else if (colors > 3) {
+                        return "moreThanEnough";
+                }
+        }
+
 
         const admin = function(req, res, next) {
                 Monday = [];
@@ -123,21 +133,22 @@ module.exports = function(models) {
                                 return next(err)
                         } else {
                                 for (var i = 0; i < reslt.length; i++) {
+                                                console.log(reslt[i]);
                                         var curDays = reslt[i].daysToWork;
                                         for (var day in curDays) {
                                                 if (day == 'Monday') {
                                                         Monday.push(reslt[i].waiterName);
                                                 } else if (day == 'Tuesday') {
                                                         Tuesday.push(reslt[i].waiterName);
-                                                }else if (day == 'Wednesday') {
+                                                } else if (day == 'Wednesday') {
                                                         Wednesday.push(reslt[i].waiterName);
-                                                }else if (day == 'Thursday') {
+                                                } else if (day == 'Thursday') {
                                                         Thursday.push(reslt[i].waiterName);
-                                                }else if (day == 'Friday') {
+                                                } else if (day == 'Friday') {
                                                         Friday.push(reslt[i].waiterName);
-                                                }else if (day == 'Saturday') {
+                                                } else if (day == 'Saturday') {
                                                         Saturday.push(reslt[i].waiterName);
-                                                }else if (day == 'Sunday') {
+                                                } else if (day == 'Sunday') {
                                                         Sunday.push(reslt[i].waiterName);
                                                 }
                                         }
@@ -145,14 +156,37 @@ module.exports = function(models) {
                         }
                         res.render("admin", {
                                 mon: Monday,
+                                mondayColor: backgroundColor(Monday.length),
+
                                 tue: Tuesday,
+                                tuesdayColor: backgroundColor(Tuesday.length),
+
                                 wed: Wednesday,
+                                wednesdayColor: backgroundColor(Wednesday.length),
+
                                 thur: Thursday,
+                                thursdayColor: backgroundColor(Thursday.length),
+
                                 fri: Friday,
+                                fridayColor: backgroundColor(Friday.length),
+
                                 sat: Saturday,
-                                sun: Sunday
+                                saturdayColor: backgroundColor(Saturday.length),
+
+                                sun: Sunday,
+                                sundayColor: backgroundColor(Sunday.length)
+
                         });
                 });
+        }
+
+        const clearHistory = function(req,res,next){
+                models.waiterInfo.remove({}, function(err, data){
+                        if (err) {
+                                return next(err)
+                        }
+                        res.render("admin")
+                })
         }
 
 
@@ -160,6 +194,7 @@ module.exports = function(models) {
                 waiters,
                 waiterAccess,
                 days,
-                admin
+                admin,
+                clearHistory
         }
 }

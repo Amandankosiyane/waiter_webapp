@@ -37,3 +37,51 @@ li{
         list-style: none;
         text-align: center;
 }
+.clearData{
+        width: 30%;
+    height: 30px;
+    font-size: 20px;
+    background-size: cover;
+    background-color: lightgray;
+    border-radius: 50px;
+    font-weight: bold;
+    font-style: oblique;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+}
+
+
+
+.enough{
+    background-color: green;
+}
+
+.notEnough{
+    background-color: red;
+}
+
+.moreThanEnough{
+    background-color: orange;
+}
+ .green{
+        background-color: green;
+        width: 10em;
+        text-align: center;
+        height: 3em;
+ }
+.red{
+background-color: red;
+width: 10em;
+text-align: center;
+height: 3em;
+}
+.orange{
+background-color: orange;
+width: 10em;
+text-align: center;
+height: 3em;
+}
+.key {
+        display: inline-block;
+            margin: 0.4em;
+    }

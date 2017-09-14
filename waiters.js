@@ -73,8 +73,16 @@ module.exports = function(models) {
                 var firstLetter = req.params.username.substring(0, 1);
                 var uppercase = req.params.username.substring(0, 1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
-
                 var days = req.body.day;
+
+                if (days === undefined) {
+                        var message = "Please select atleast one day"
+                        res.render('days', {
+                                output: message
+                        })
+                return
+                }
+
                 if (!Array.isArray(days)) {
                         days = [days]
                 }
@@ -93,11 +101,6 @@ module.exports = function(models) {
                 }, function(err, result) {
                         if (err) {
                                 console.log(err);
-                        } else if (!result) {
-                                models.waiterInfo.create({
-                                        waiterName: username,
-                                        daysToWork: daysObject
-                                });
                         }
                 });
 

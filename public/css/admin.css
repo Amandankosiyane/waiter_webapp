@@ -1,4 +1,4 @@
-body{
+body {
         background-color: lavender;
         background-image: url(backgroundImage.jpg);
         background-size: cover;
@@ -6,82 +6,114 @@ body{
         margin: 50px;
 }
 
-h6 {
-        font-size: 4em;
+.availableWaiters {
+        font-size: 10em;
         font-family: 'Gochi Hand', border-style: inset;
-        /*font-weight: bolder;*/
         text-align: center;
         text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
 }
 
-table{
-        width: 60%;
-    border-color: slategrey;
-    text-align: center;
-    border-collapse: separate;
-    border-spacing: 3px;
-    background-color: darksalmon;
+h6 {
+        /*font-size: 4em;*/
+        text-align: center;
 }
 
-td{
-        font-weight: 100;
-   border: 3px solid black;
-   border-collapse: collapse;
+table {
+        width: 60%;
+        border-color: slategrey;
+        text-align: center;
+        border-collapse: separate;
+        border-spacing: 3px;
+        background-color: darksalmon;
 }
-th{
+
+td {
+        font-weight: 100;
+        border: 3px solid black;
+        border-collapse: collapse;
+}
+
+th {
         border: 5px solid black;
         height: 35px;
 }
 
-li{
+li {
         list-style: none;
         text-align: center;
 }
-.clearData{
+
+.clearData {
         width: 30%;
-    height: 30px;
-    font-size: 20px;
-    background-size: cover;
-    background-color: lightgray;
-    border-radius: 50px;
-    font-weight: bold;
-    font-style: oblique;
-    cursor: pointer;
-    text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+        height: 30px;
+        font-size: 20px;
+        background-size: cover;
+        background-color: lightgray;
+        border-radius: 50px;
+        font-weight: bold;
+        font-style: oblique;
+        cursor: pointer;
+        text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
 }
 
-
-
-.enough{
-    background-color: green;
-}
-
-.notEnough{
-    background-color: red;
-}
-
-.moreThanEnough{
-    background-color: orange;
-}
- .green{
+.enough {
         background-color: green;
-        width: 10em;
+}
+
+.notEnough {
+        background-color: red;
+}
+
+.moreThanEnough {
+        background-color: orange;
+}
+
+.green {
+        display: table-cell;
+  vertical-align: middle;
+  border: 1px solid #f00;
+  height: 100px;
+  width: 100px
+        display: inline-block;
+        background-color: green;
+        width: 8em;
         text-align: center;
         height: 3em;
- }
-.red{
-background-color: red;
-width: 10em;
-text-align: center;
-height: 3em;
+        font-size: 1.2em;
 }
-.orange{
-background-color: orange;
-width: 10em;
-text-align: center;
-height: 3em;
-}
-.key {
+
+.red {
+        display: table-cell;
+  vertical-align: middle;
+  border: 1px solid #f00;
+  height: 100px;
+  width: 100px
         display: inline-block;
-            margin: 0.4em;
-    }
+        background-color: red;
+        width: 8em;
+        text-align: center;
+        height: 3em;
+        font-size: 1.2em;
+}
+
+.orange {
+
+        display: table-cell;
+  vertical-align: middle;
+  border: 1px solid #f00;
+  height: 100px;
+  width: 100px
+        display: inline-block;
+        background-color: orange;
+        width: 8em;
+
+        height: 3em;
+        font-size: 1.2em;
+}
+.info{
+        display: table-cell;
+  width: 100px
+        display: inline-block;
+        font-size: 3em;
+        text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+}

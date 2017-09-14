@@ -24,20 +24,11 @@ app.get('/', function(req,res){
         res.redirect('/waiters');
 })
 
-app.get('/waiters', waiterRoutes.waiters)
-
+app.get('/waiters', waiterRoutes.waiters);
 app.get('/waiters/:username', waiterRoutes.waiterAccess);
 app.post('/waiters/:username', waiterRoutes.days);
-
-app.get('/days', waiterRoutes.waiterAccess);
-app.post('/days', waiterRoutes.waiterAccess);
-
 app.get('/admin', waiterRoutes.admin);
-app.post('/admin', waiterRoutes.admin);
-
 app.get('/clear', waiterRoutes.clearHistory)
-app.post('/clear', waiterRoutes.clearHistory)
-
 
 const port = process.env.PORT || 3016;
 app.listen(port, function(){

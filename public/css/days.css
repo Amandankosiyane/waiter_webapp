@@ -6,23 +6,15 @@ body {
         margin: 50px;
 }
 
-/*form {
-        margin-right: 220px;
-        background-color: darksalmon;
-        border-radius: 60px;
-        width: 50em;
-        float: right
-}*/
-
 h6 {
         font-size: 2em;
         font-family: 'Gochi Hand', border-style: inset;
-        /*font-weight: bolder;*/
         text-align: center;
         text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px white;
 }
 
 h1 {
+        background-color: silver;
         font-size: 4em;
         font-family: 'Gochi Hand', border-style: inset;
         font-weight: bolder;
@@ -30,33 +22,34 @@ h1 {
         text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
 }
 
-.submitBtn {
-        width: 30%;
-        height: 30px;
-        font-size: 20px;
-        background-size: cover;
-        background-color: lightgray;
-        border-radius: 50px;
-        font-weight: bold;
-        font-style: oblique;
-        cursor: pointer;
-        text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
-}
-
 .error {
         font-size: 2em;
         color: green;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 15em;
+        margin: auto;
 }
 
-.success {
-        font-size: 2em;
-        color: red;
-}
 
-.row {
-        margin-right: 6em;
+.form-group{
         border-radius: 60px;
-        width: 50em;
-        background-color: darksalmon;
-        float: right;
+        position: absolute;
+        left: 25em;
+        right: 0;
+}
+.wsd {
+        margin-right: -144px;
+}
+
+input{
+        background-color: red;
+}
+
+
+.output{
+        color: red;
+        font-size: 2em;
+        text-align: middle;
 }

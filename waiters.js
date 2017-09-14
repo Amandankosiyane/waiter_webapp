@@ -13,57 +13,42 @@ module.exports = function(models) {
         }
 
         const waiterAccess = function(req, res, next) {
-                var daysObject = {};
+
                 var firstLetter = req.params.username.substring(0, 1);
                 var uppercase = req.params.username.substring(0, 1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
-                var days = req.body.day;
 
-                if (!Array.isArray(days)) {
-                        days = [days]
-                }
-
-                days.forEach(function(day) {
-                        daysObject[day] = true
-
-                });
 
                 models.waiterInfo.findOne({
-                        waiterName: username
-                }, function(err, results) {
-                        if (err) {
-                                return next(err)
-                        }
-
-                        console.log(results);
-                        if (results !== null) {
-
-                                console.log('results exits');
-
-                                var waiterData = {
-                                        waiterName: results.waiterName,
-                                        days: results.daysToWork
+                                waiterName: username
+                        },
+                        function(err, results) {
+                                console.log(results);
+                                if (err) {
+                                        return next(err)
+                                } else {
+                                        if (results) {
+                                                var data = {
+                                                        waiterName: results.waiterName,
+                                                        days: results.daysToWork
+                                                }
+                                                req.flash("name", "Hello  " + results.waiterName + ",   Welcome back")
+                                                res.render("days", data)
+                                        }
+                                        if (!results) {
+                                                models.waiterInfo.create({
+                                                        waiterName: username,
+                                                        // daysToWork: daysObject
+                                                }, function(err, result) {
+                                                        if (err) {
+                                                                return next(err)
+                                                        }
+                                                        req.flash("name", "Hello  " + result.waiterName + ",   Please select your working days")
+                                                        res.render('days')
+                                                })
+                                        }
                                 }
-                                res.render('days', waiterData)
-                        }
-                        if (results == null) {
-                                console.log('creating');
-                                models.waiterInfo.create({
-                                        waiterName: username,
-                                        daysToWork: daysObject
-                                }, function(err, results) {
-                                        if (err) {
-                                                return next(err)
-                                        }
-                                        var waiterData = {
-                                                waiterName: results.waiterName,
-                                                days: results.daysToWork
-                                        }
-                                        res.render('days', waiterData)
-
-                                })
-                        }
-                })
+                        })
 
         }
 
@@ -74,13 +59,14 @@ module.exports = function(models) {
                 var uppercase = req.params.username.substring(0, 1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
                 var days = req.body.day;
+                console.log(days);
 
                 if (days === undefined) {
                         var message = "Please select atleast one day"
                         res.render('days', {
                                 output: message
                         })
-                return
+                        return
                 }
 
                 if (!Array.isArray(days)) {
@@ -92,31 +78,28 @@ module.exports = function(models) {
 
                 });
 
-
-
                 models.waiterInfo.findOneAndUpdate({
-                        waiterName: username
-                }, {
-                        daysToWork: daysObject
-                }, function(err, result) {
-                        if (err) {
-                                console.log(err);
-                        }
-                });
-
-
-                req.flash('error', "Thank you, shift updated.")
-                res.redirect('/waiters/' + username);
-
-
+                                waiterName: username
+                        }, {
+                                daysToWork: daysObject
+                        },
+                        function(err, result) {
+                                if (err) {
+                                        return next(err)
+                                } else {
+                                        console.log(result);
+                                }
+                        })
+                        req.flash('error', "Thank you, shift updated.")
+                        res.redirect('/waiters/' + username);
         }
 
         function backgroundColor(colors) {
                 if (colors === 3) {
                         return "enough";
-                }else if (colors < 3) {
+                } else if (colors < 3) {
                         return "notEnough";
-                }else if (colors > 3) {
+                } else if (colors > 3) {
                         return "moreThanEnough";
                 }
         }
@@ -136,7 +119,7 @@ module.exports = function(models) {
                                 return next(err)
                         } else {
                                 for (var i = 0; i < reslt.length; i++) {
-                                                console.log(reslt[i]);
+                                        console.log(reslt[i]);
                                         var curDays = reslt[i].daysToWork;
                                         for (var day in curDays) {
                                                 if (day == 'Monday') {
@@ -183,8 +166,8 @@ module.exports = function(models) {
                 });
         }
 
-        const clearHistory = function(req,res,next){
-                models.waiterInfo.remove({}, function(err, data){
+        const clearHistory = function(req, res, next) {
+                models.waiterInfo.remove({}, function(err, data) {
                         if (err) {
                                 return next(err)
                         }

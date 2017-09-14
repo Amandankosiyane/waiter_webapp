@@ -1,13 +1,14 @@
 body {
         margin: 50px;
         background-color: lavender;
-        background-image: url(backgroundImage.jpg);
+        background-image: url(waitress.jpg);
         background-size: cover;
         background-attachment: fixed;
 }
 
 
 h3 {
+        background-color: silver;
         font-size: 4em;
         font-family: 'Gochi Hand', border-style: inset;
         font-weight: bolder;

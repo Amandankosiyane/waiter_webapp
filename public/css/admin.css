@@ -1,12 +1,13 @@
 body {
         background-color: lavender;
-        background-image: url(backgroundImage.jpg);
+        background-image: url(waitress.jpg);
         background-size: cover;
         background-attachment: fixed;
         margin: 50px;
 }
 
 .availableWaiters {
+        background-color: silver;
         font-size: 10em;
         font-family: 'Gochi Hand', border-style: inset;
         text-align: center;

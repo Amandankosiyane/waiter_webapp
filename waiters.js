@@ -17,6 +17,7 @@ module.exports = function(models) {
                 var firstLetter = req.params.username.substring(0, 1);
                 var uppercase = req.params.username.substring(0, 1).toUpperCase()
                 var username = req.params.username.replace(firstLetter, uppercase);
+                var days = req.body.day
 
 
                 models.waiterInfo.findOne({
@@ -32,25 +33,24 @@ module.exports = function(models) {
                                                         waiterName: results.waiterName,
                                                         days: results.daysToWork
                                                 }
-                                                req.flash("name", "Hello  " + results.waiterName + ",   Welcome back")
+                                                req.flash("name", "Welcome back  " + results.waiterName + ",   Please select your working days")
                                                 res.render("days", data)
                                         }
+                                }
                                         if (!results) {
                                                 models.waiterInfo.create({
                                                         waiterName: username,
-                                                        // daysToWork: daysObject
-                                                }, function(err, result) {
+                                                }, function(err, results) {
                                                         if (err) {
                                                                 return next(err)
                                                         }
-                                                        req.flash("name", "Hello  " + result.waiterName + ",   Please select your working days")
+                                                        req.flash("name", "Hello  " + results.waiterName + ",   Please select your working days")
                                                         res.render('days')
                                                 })
                                         }
+                                })
                                 }
-                        })
 
-        }
 
         const days = function(req, res, next) {
 
@@ -62,36 +62,55 @@ module.exports = function(models) {
                 console.log(days);
 
                 if (days === undefined) {
-                        var message = "Please select atleast one day"
+                        var message = username + ", Please select three days"
                         res.render('days', {
                                 output: message
                         })
                         return
                 }
-
-                if (!Array.isArray(days)) {
-                        days = [days]
+                else if (days.length <3 && days.length == 1) {
+                        var message =  " please 3 working days "
+                        res.render('days', {output: message})
+                        return
                 }
+                else if (days.length > 3 ) {
+                        var message =  "you selected more days try and reduce to 3 working days "
+                        res.render('days', {output: message})
+                }
+                else {
 
-                days.forEach(function(day) {
-                        daysObject[day] = true
 
-                });
+                        if (!Array.isArray(days)) {
+                                days = [days]
+                        }
 
-                models.waiterInfo.findOneAndUpdate({
+                        days.forEach(function(day) {
+                                daysObject[day] = true
+
+                        });
+
+                        console.log(daysObject);
+                        console.log('========================');
+
+
+                        models.waiterInfo.findOneAndUpdate({
                                 waiterName: username
                         }, {
                                 daysToWork: daysObject
-                        },
-                        function(err, result) {
+                        }, {
+                                new: true,
+                                returnNewDocument: true
+                        }, function(err, results) {
+                                console.log(results);
+                                console.log('========================');
                                 if (err) {
                                         return next(err)
-                                } else {
-                                        console.log(result);
                                 }
-                        })
-                        req.flash('error', "Thank you, shift updated.")
+
+                        });
+                req.flash('error', "Thank you, " + username + " shift updated.")
                         res.redirect('/waiters/' + username);
+                }
         }
 
         function backgroundColor(colors) {

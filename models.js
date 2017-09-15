@@ -7,6 +7,8 @@ module.exports = function(mongoUrl) {
 
         });
 
+        waiterSchema.index({waiterName: 1}, {unique: true});
+
         const waiterInfo = mongoose.model('waiterInfo', waiterSchema);
 
         return {

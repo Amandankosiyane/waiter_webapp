@@ -7,8 +7,9 @@ body {
 }
 
 .availableWaiters {
+font-family: 'Akronim', cursive;
         background-color: silver;
-        font-size: 10em;
+        font-size: 7em;
         font-family: 'Gochi Hand', border-style: inset;
         text-align: center;
         text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
@@ -112,6 +113,7 @@ li {
         font-size: 1.2em;
 }
 .info{
+        font-family: 'Lobster Two', cursive;
         display: table-cell;
   width: 100px
         display: inline-block;

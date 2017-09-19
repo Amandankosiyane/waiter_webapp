@@ -228,6 +228,7 @@ module.exports = function(models) {
                         if (err) {
                                 return next(err)
                         }
+                        req.flash("error", " Schedule ready for next week")
                         res.render("admin")
                 })
         }

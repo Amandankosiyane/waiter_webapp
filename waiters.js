@@ -33,7 +33,7 @@ module.exports = function(models) {
                                                         waiterName: results.waiterName,
                                                         days: results.daysToWork
                                                 }
-                                                req.flash("name", "Welcome back  " + results.waiterName + ",   Please select your working days")
+                                                req.flash("name", "Welcome back  " + results.waiterName + ",   Please update your working days")
                                                 res.render("days", data)
                                         }
                                 }
@@ -62,19 +62,28 @@ module.exports = function(models) {
                 console.log(days);
 
                 if (days === undefined) {
-                        var message = username + ", Please select three days"
+                        var message = username + ", Please select  days first"
                         res.render('days', {
                                 output: message
                         })
                         return
                 }
-                else if (days.length <3 && days.length == 1) {
-                        var message =  " please 3 working days "
+                else if (days.length <3) {
+                        var message = username +  ", Please select 3 working days "
                         res.render('days', {output: message})
                         return
                 }
                 else if (days.length > 3 ) {
-                        var message =  "you selected more days try and reduce to 3 working days "
+                        console.log(typeof(days) == 'object');
+                        if (typeof(days) == 'object' ) {
+                                console.log('Loop');
+                                var message = username +   ", You selected more days try to select  3 working days "
+                        }
+                        else if (typeof(days) == 'string') {
+                                console.log('Loop 2');
+                                var message =  username + ", Please select 3 working days "
+                        }
+
                         res.render('days', {output: message})
                 }
                 else {
@@ -155,6 +164,35 @@ module.exports = function(models) {
                                                         Saturday.push(reslt[i].waiterName);
                                                 } else if (day == 'Sunday') {
                                                         Sunday.push(reslt[i].waiterName);
+                                                }else {
+                                                        if (day != 'Monday') {
+                                                                req.flash("error", "No waiters for this day")
+                                                                render('days')
+                                                        }
+                                                        if (day != 'Tuesday') {
+                                                                req.flash("error", "No waiters for this day")
+                                                                render('days')
+                                                        }
+                                                        if (day != 'Wednesday') {
+                                                                req.flash("error", "No waiters for this day")
+                                                                render('days')
+                                                        }
+                                                        if (day != 'Thursday') {
+                                                                req.flash("error", "No waiters for this day")
+                                                                render('days')
+                                                        }
+                                                        if (day != 'Friday') {
+                                                                req.flash("error", "No waiters for this day")
+                                                                render('days')
+                                                        }
+                                                        if (day != 'Saturday') {
+                                                                req.flash("error", "No waiters for this day")
+                                                                render('days')
+                                                        }
+                                                        if (day != 'Sunday') {
+                                                                req.flash("error", "No waiters for this day")
+                                                                render('days')
+                                                        }
                                                 }
                                         }
                                 }

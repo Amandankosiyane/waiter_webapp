@@ -19,5 +19,5 @@ Also update their working days.
 ## Let's start
 - Clone my [repository](https://github.com/Amandankosiyane/waiter_webapp/tree/master) from github to your machine.
 - Copy and paste the following code to your terminal:
-``` $git clone https://github.com/Amandankosiyane/waiter_webapp.git
+``` $ git clone https://github.com/Amandankosiyane/waiter_webapp.git
 ```

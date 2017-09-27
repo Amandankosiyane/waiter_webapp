@@ -93,7 +93,11 @@ web app started on port: 3016
 http://localhost:3016
 
 ```
-- Then you should land to this page:
-![alt text](/home/bootcamp/project/waiter_webapp/landing.png)
+- Then you should be able to run the application.
+## Let's run the Application on Heroku
+- I assume that you already have the following:
+> Node.js and npm installed.
 
-<!-- ![alt text](/home/bootcamp/landing.png.png "Landing Page") -->
+> An existing Node.js app.
+
+> A free Heroku account if not then [create](https://signup.heroku.com/dc) one.

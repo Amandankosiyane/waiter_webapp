@@ -25,8 +25,11 @@ Also update their working days.
 ```
 - Before you start anything you first need to make sure that you have the following _installed:_
 > NodeJS.
+
 > MongoDB.
+
 > Package.JSON dependencies.
+
 ### Installation:
 ###### NodeJS
 - First check if you have NodeJS installed in your machine by typing _node -v_. if you already have NodeJS, your terminal will show you the version of NodeJS that you have. If you do not have NodeJS installed, then install it in your terminal following [these](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04) commands.

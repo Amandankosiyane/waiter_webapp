@@ -67,3 +67,24 @@ npm install
 
 
 ```
+## Let's run the Application locally
+- If you installed everything correctly by now you should be able to run the Application locally.
+- In your terminal type the following command:
+```
+- nodemon
+or
+- node index.js
+
+```
+- If you do not have errors you should see this in your terminal:
+```
+[nodemon] 1.11.0
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node index.js`
+`open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+express-session deprecated undefined resave option; provide resave option index.js:20:9
+express-session deprecated undefined saveUninitialized option; provide saveUninitialized option index.js:20:9
+web app started on port: 3016
+
+```

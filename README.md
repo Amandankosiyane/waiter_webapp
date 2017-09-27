@@ -76,7 +76,7 @@ or
 - node index.js
 
 ```
-- If you do not have errors you should see this in your terminal:
+- If you do not have errors you should see this in your terminal(in my case i used nodemon to run the Application):
 ```
 [nodemon] 1.11.0
 [nodemon] to restart at any time, enter `rs`
@@ -88,3 +88,10 @@ express-session deprecated undefined saveUninitialized option; provide saveUnini
 web app started on port: 3016
 
 ```
+- Run the Application in the browser by typing in the localhost number:
+```
+http://localhost:3016
+
+```
+- Then you should land to this page:
+![alt text](/home/bootcamp/landing.png.png "Landing Page")

@@ -17,4 +17,7 @@ Also update their working days.
 - See the background-color changes when there are enough(background-color should be green), more(background-color should be orange) and less waiters(background-color should be red).
 
 ## Let's start
-Clone my [repository](https://github.com/Amandankosiyane/waiter_webapp/tree/master) from github to your machine.
+- Clone my [repository](https://github.com/Amandankosiyane/waiter_webapp/tree/master) from github to your machine.
+- Copy and paste the following code to your terminal:
+``` $git clone https://github.com/Amandankosiyane/waiter_webapp.git
+```

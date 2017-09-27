@@ -1,7 +1,7 @@
 # waiter_webapp
 
 ## About
-My sister owns a restaurant, so she asked me to build her a web-Application that will allow her waiters to select the days that they would like to work on.
+My sister owns a coffee shop, so she asked me to build her a web-Application that will allow her waiters to select the days that they would like to work on.
 
 She also want to see the available waiters per day.
 
@@ -94,6 +94,12 @@ http://localhost:3016
 
 ```
 - Then you should be able to run the application.
+- If you want to check the admin side just type in the following URL:
+```
+http://localhost:3016/admin
+
+```
+
 ## Let's run the Application on Heroku
 - I assume that you already have the following:
 > Node.js and npm installed.

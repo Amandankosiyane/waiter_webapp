@@ -101,3 +101,19 @@ http://localhost:3016
 > An existing Node.js app.
 
 > A free Heroku account if not then [create](https://signup.heroku.com/dc) one.
+- Now you have heroku account so let's deploy on Heroku. Follow these steps to deploy using Heroku:
+```
+- $ git add .
+- $ git commit -m "type in a message"
+- $ heroku login
+> enter your heroku logins
+- $ heroku create
+- $ git push heroku master
+
+```
+- To run the Application online:
+```
+$ heroku open
+
+```
+- You can now run the Application.

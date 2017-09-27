@@ -117,3 +117,9 @@ $ heroku open
 
 ```
 - You can now run the Application.
+## Tools used to run the online Application
+- [MLAB](https://mlab.com/) - Cloud database service that hosts [MongoDB](https://www.mongodb.com/) databases.
+- [npm](https://www.npmjs.com/) - Package manager for JavaScript software.
+
+## By:
+[Amanda Nkosiyane](https://github.com/Amandankosiyane) codeX student.

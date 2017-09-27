@@ -94,6 +94,6 @@ http://localhost:3016
 
 ```
 - Then you should land to this page:
-![alt text](home/bootcamp/landing.png.png)
+![alt text](/home/bootcamp/project/waiter_webapp/landing.png)
 
 <!-- ![alt text](/home/bootcamp/landing.png.png "Landing Page") -->

@@ -1,6 +1,6 @@
 body {
         background-color: lavender;
-        background-image: url(waitress.jpg);
+        background-image: url(backImmo.jpg);
         background-size: cover;
         background-attachment: fixed;
         margin: 50px;
@@ -15,7 +15,7 @@ h6 {
 
 h1 {
         font-family: 'Akronim', cursive;
-        background-color: silver;
+        /*background-color: silver;*/
         font-size: 4em;
         text-align: center;
         text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;

@@ -1,0 +1,55 @@
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="/css/days.css">
+        <link rel="stylesheet" href="/css/days.css"> -->
+</head>
+
+<body>
+        <div class="container">
+                <div class="row">
+                        <h3>DAYS TO WORK</h3>
+                        <form class="form-group  jumbotron-fluid" method="post" action="">
+                                  <ul>
+                                    <li>{{username}}</li>
+                                  </ul>
+
+                                        <label class="checkbox-inline">
+                                  <input  type="checkbox" name="days" value="Monday" {{#if monday}} checked {{/if}}>Monday<br>
+                          </label>
+                                  <label class="checkbox-inline">
+                                  <input  type="checkbox" name="days" value="Tuesday"{{#if tuesday}} checked {{/if}}>Tuesday <br>
+                          </label>
+                                  <label class="checkbox-inline">
+                                  <input  type="checkbox" name="days" value="Wednesday"{{#if wednesday}} checked {{/if}}>Wednesday <br>
+                          </label>
+                                  <label class="checkbox-inline">
+                                  <input  type="checkbox" name="days" value="Thursday"{{#if thursday}} checked {{/if}}>Thursday <br>
+                          </label>
+                                  <label class="checkbox-inline">
+                                  <input  type="checkbox" name="days" value="Friday"{{#if friday}} checked {{/if}}>Friday<br>
+                          </label>
+                                  <label class="checkbox-inline">
+                                  <input  type="checkbox" name="days" value="Saturday"{{#if saturday}} checked {{/if}}>Saturday<br>
+                          </label>
+                                  <label class="checkbox-inline">
+                                  <input  type="checkbox" name="days" value="Sunday"{{#if sunday}} checked {{/if}}>Sunday
+                          </label>
+                                  <br></br>
+                                  <button type="submit" class="btn btn-primary" id="button">SUBMIT</button>
+                                </form>
+                                <br>
+                                <form class="" method="get" action="/logout">
+                                <button type="submit" class="btn btn-primary">LOGOUT</button>
+                          <!-- </div> -->
+                        </form>
+                        <br>
+<p>{{output}}</p>
+<p>{{informText}}</p>
+                </div>
+        </div>
+</body>

@@ -1,26 +1,28 @@
 body {
         margin: 50px;
         background-color: lavender;
-        background-image: url(waitress.jpg);
+        background-image: url(backImmo.jpg);
         background-size: cover;
         background-attachment: fixed;
 }
 
 
-h3 {
+h1 {
         font-family: 'Akronim', cursive;
-        background-color: silver;
+        /*background-color: silver;*/
         font-size: 4em;
         font-family: 'Gochi Hand', border-style: inset;
-        /*font-weight: bolder;*/
+        font-weight: bolder;
         text-align: center;
         text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
 }
 
 
-.alert {
+#alert {
     background-color: darksalmon;
-    color: green;
+    color: black;
     font-weight: bold;
     font-size: 1.5em;
+    text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+
 }
